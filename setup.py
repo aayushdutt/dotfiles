@@ -20,6 +20,8 @@ def create_required_dirs(filepath: str) -> bool:
         print(
             f"Skipping download for {filepath}. File already exists and is not empty.")
         return True
+    
+    os.chmod(filepath, 0o644)
     return False
 
 
@@ -40,15 +42,19 @@ def download(filepath: str):
 def setup():
     """
     TODO:
-    1. Parallelize downloads
-    2. Add package installations
-    3. CLI options for OS and to only setup one of packages or dotfiles
+    - Parallelize downloads
+    - Add package installations
+    - CLI options for OS and to only setup one of packages or dotfiles
+    - Add flag to force overwrite if exists
     """
-    download('.bash_aliases')
-    download('.bash_profile')
-    download('.tmux.conf')
-    download('.config/nvim/init.lua')
-
+    dotfiles = [
+        '.bash_aliases',
+        '.bash_profile',
+        '.tmux.conf',
+        '.config/nvim/init.lua',
+    ]
+    for path in dotfiles:
+        download(path)
 
 if __name__ == "__main__":
     setup()
