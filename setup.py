@@ -45,8 +45,7 @@ def setup_dotfiles():
     """
     TODO:
     - Parallelize downloads
-    - Add package installations
-    - CLI options for OS and to only setup one of packages or dotfiles
+    - CLI options for OS
     - Add flag to force overwrite if exists
     """
     print("Setting up dotfiles")
