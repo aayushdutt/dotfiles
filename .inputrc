@@ -1,3 +1,4 @@
+# For windows git bash - fixes C_r keybinding for fzf history
 $if Bash
-  "\C-r": "history | fzf\n"
+  "\C-r": "history | fzf --tac\n"
 $endif
