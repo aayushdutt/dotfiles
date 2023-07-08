@@ -1,6 +1,6 @@
 --- Options
 vim.opt.number         = true
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 vim.opt.tabstop        = 3
 vim.opt.smartindent    = true
 vim.opt.mouse          = "a"
@@ -65,6 +65,8 @@ function Vscode_convert_to_tabs() vim.fn.VSCodeNotify("editor.action.indentation
 function Vscode_indent_with_spaces() vim.fn.VSCodeNotify("editor.action.indentUsingSpaces") end
 function Vscode_indent_with_tabs() vim.fn.VSCodeNotify("editor.action.indentUsingTabs") end
 function Vscode_change_encoding() vim.fn.VSCodeNotify("workbench.action.editor.changeEncoding") end
+function Vscode_previous_window_tab() vim.fn.VSCodeNotify("workbench.action.previousEditor") end
+function Vscode_next_window_tab() vim.fn.VSCodeNotify("workbench.action.nextEditor") end
 function Vscode_rename_symbol() vim.fn.VSCodeNotify("editor.action.rename") end
 function Vscode_format_document()
     vim.fn.VSCodeNotify("editor.action.formatDocument")
@@ -101,6 +103,8 @@ if vim.g.vscode then
     vim.keymap.set("n", "=t",        Vscode_convert_to_tabs)
     vim.keymap.set("n", "za",        Vscode_toggle_fold)
     vim.keymap.set("n", "=ie",       Vscode_format_document)
+    vim.keymap.set("n", "K",         Vscode_previous_window_tab)
+    vim.keymap.set("n", "J",         Vscode_next_window_tab)
 
     --# Vscode: Visual remaps
     vim.keymap.set("v", "gs", Vscode_vis_codesnap)
