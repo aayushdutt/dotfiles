@@ -7,7 +7,7 @@
     },
     {
       "pattern": "https?://www.youtube.com/*",
-      "passKeys": "><123456789fsd"
+      "passKeys": "><123456789fsdm"
     },
     {
       "pattern": "https?://192.168.1.2:5001/*",
